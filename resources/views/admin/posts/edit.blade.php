@@ -39,7 +39,9 @@
                     <div class="form-group">
                         @foreach ($tags as $tag)
                             <input type="checkbox" id="{{ $tag->name }}" value="{{ $tag->id }}" name="tags[]"
-                                @if (in_array($tag->id, old('tags', []))) checked @endif>
+                                @if (!$errors->any() && $post->tags->contains($tag->id)) checked
+                                @elseif ($errors->any() && in_array($tag->id, old('tags', []))) @endif>
+
                             <label class="mr-3" for="{{ $tag->name }}">{{ $tag->name }}</label>
                         @endforeach
                     </div>
