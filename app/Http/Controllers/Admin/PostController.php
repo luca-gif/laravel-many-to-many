@@ -103,7 +103,9 @@ class PostController extends Controller
 
         $post->update($content);
 
-        $post->tags()->sync($content['tags']);
+        if (array_key_exists('tags', $content)) {
+            $post->tags()->sync($content['tags']);
+        }
 
         return redirect()->route('admin.posts.show', compact('post'));
     }

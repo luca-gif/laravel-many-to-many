@@ -19,6 +19,7 @@
                     @endif
                 </div>
                 <a class="btn btn-primary m-2" href="{{ route('admin.posts.index') }}">Back</a>
+                <a class="btn btn-success m-2" href="{{ route('admin.posts.edit', $post) }}">Edit</a>
             </div>
         </div>
 

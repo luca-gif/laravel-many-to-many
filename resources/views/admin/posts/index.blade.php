@@ -31,7 +31,8 @@
 
                                         @if ($post->tags)
                                             @foreach ($post->tags as $tag)
-                                                <td><span class="badge badge-warning">{{ $tag->name }}</span></td>
+                                                <td class="d-flex"><span
+                                                        class="badge badge-warning">{{ $tag->name }}</span></td>
                                             @endforeach
                                         @endif
 
