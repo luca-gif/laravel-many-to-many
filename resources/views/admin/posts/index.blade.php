@@ -15,6 +15,7 @@
                                     <th scope="col">Title</th>
                                     <th scope="col">Content</th>
                                     <th scope="col">Category</th>
+                                    <th scope="col">Tag</th>
                                     <th scope="col">Buttons</th>
 
                                 </tr>
@@ -27,6 +28,13 @@
                                         <td>{{ $post->title }}</td>
                                         <td>{{ $post->content }}</td>
                                         <td>{{ $post->category ? $post->category->name : '-' }}</td>
+
+                                        @if ($post->tags)
+                                            @foreach ($post->tags as $tag)
+                                                <td><span class="badge badge-warning">{{ $tag->name }}</span></td>
+                                            @endforeach
+                                        @endif
+
                                         <td class="w-25">
                                             <a class="btn btn-danger"
                                                 href="{{ route('admin.posts.show', $post) }}">Show</a>
