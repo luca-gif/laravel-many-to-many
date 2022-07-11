@@ -35,8 +35,8 @@ class PostRequest extends FormRequest
             'title.required' => 'Il Titolo è obbligatorio',
             'title.min' => 'Lunghezza min :min caratteri',
             'title.max' => 'Lunghezza max :max caratteri',
-            'content.required' => 'Aggiungi un messaggio',
-            'content.min' => 'Lunghezza min :min caratteri'
+            'content.required' => 'Aggiungi una descrizione',
+            'content.min' => 'Inserisci una descrizione più lunga di :min caratteri'
         ];
     }
 }

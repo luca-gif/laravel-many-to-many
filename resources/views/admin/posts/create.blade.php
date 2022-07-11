@@ -37,6 +37,13 @@
                         <p class="invalid-feedback" id="error-content"></p>
                     </div>
 
+                    <div class="form-group">
+                        @foreach ($tags as $tag)
+                            <input type="checkbox" id="{{ $tag->name }}" value="{{ $tag->id }}" name="tags[]">
+                            <label class="mr-3" for="{{ $tag->name }}">{{ $tag->name }}</label>
+                        @endforeach
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>

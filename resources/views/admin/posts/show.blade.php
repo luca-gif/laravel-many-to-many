@@ -12,6 +12,11 @@
                             <b>Categoria:</b> {{ $post->category->name }}
                         @endif
                     </p>
+                    @if ($post->tags)
+                        @foreach ($post->tags as $tag)
+                            <div class="badge badge-warning">{{ $tag->name }}</div>
+                        @endforeach
+                    @endif
                 </div>
                 <a class="btn btn-primary m-2" href="{{ route('admin.posts.index') }}">Back</a>
             </div>
