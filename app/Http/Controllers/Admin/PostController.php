@@ -19,7 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('id', 'desc')->paginate(5);
+        $posts = Post::orderBy('id', 'desc')->paginate(8);
         $categories = Category::all();
 
         return view('admin.posts.index', compact('posts', 'categories'));
@@ -84,8 +84,9 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $categories = Category::all();
+        $tags = Tag::all();
 
-        return view('admin.posts.edit', compact('post', 'categories'));
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -101,6 +102,8 @@ class PostController extends Controller
         $post = Post::find($id);
 
         $post->update($content);
+
+        $post->tags()->sync($content['tags']);
 
         return redirect()->route('admin.posts.show', compact('post'));
     }

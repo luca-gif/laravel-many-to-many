@@ -36,6 +36,14 @@
                             rows="10">{{ old('content', $post->content) }}</textarea>
                     </div>
 
+                    <div class="form-group">
+                        @foreach ($tags as $tag)
+                            <input type="checkbox" id="{{ $tag->name }}" value="{{ $tag->id }}" name="tags[]"
+                                @if (in_array($tag->id, old('tags', []))) checked @endif>
+                            <label class="mr-3" for="{{ $tag->name }}">{{ $tag->name }}</label>
+                        @endforeach
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Modifica</button>
                 </form>
             </div>
